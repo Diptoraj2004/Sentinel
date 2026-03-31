@@ -89,6 +89,7 @@ def extra_cleanup(text):
 
 # MAIN FUNCTION (LOW LATENCY)
 def redact_pii(text: str) -> str:
+    start = time.time()
 
     text = extra_cleanup(text)
 
@@ -110,7 +111,9 @@ def redact_pii(text: str) -> str:
 
     print("Detected:", results)
 
-    return redacted.text
+    latency = time.time() - start_time
+    
+    return redacted.text, latency
 
 
 # INPUT
