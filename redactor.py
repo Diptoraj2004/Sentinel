@@ -1,4 +1,5 @@
 # Imports
+import time
 from presidio_analyzer import AnalyzerEngine, PatternRecognizer, Pattern
 from presidio_analyzer.nlp_engine import NlpEngineProvider
 from presidio_anonymizer import AnonymizerEngine
@@ -89,7 +90,7 @@ def extra_cleanup(text):
 
 # MAIN FUNCTION (LOW LATENCY)
 def redact_pii(text: str) -> str:
-    start = time.time()
+    start_time = time.time()
 
     text = extra_cleanup(text)
 
